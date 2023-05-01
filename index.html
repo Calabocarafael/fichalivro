@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ficha de RPG</title>
+</head>
+<body>
+	<h1>Ficha de RPG</h1>
+
+	<h2>Habilidades</h2>
+	<ul>
+		<li>Agilidade <input type="number" min="0" max="99"> <button onclick="aumentar(this)">▲</button> <button onclick="diminuir(this)">▼</button></li>
+		<li>Combate <input type="number" min="0" max="99"> <button onclick="aumentar(this)">▲</button> <button onclick="diminuir(this)">▼</button></li>
+		<li>Lógica <input type="number" min="0" max="99"> <button onclick="aumentar(this)">▲</button> <button onclick="diminuir(this)">▼</button></li>
+		<li>Insanidade <input type="number" min="0" max="99"> <button onclick="aumentar(this)">▲</button> <button onclick="diminuir(this)">▼</button></li>
+	</ul>
+
+	<h2>A caneta é mais poderosa</h2>
+	<ul>
+		<li><input type="checkbox" id="item1"> <label for="item1">Item 1</label></li>
+		<li><input type="checkbox" id="item2"> <label for="item2">Item 2</label></li>
+		<li><input type="checkbox" id="item3"> <label for="item3">Item 3</label></li>
+	</ul>
+
+	<h2>Mais e mais curioso</h2>
+	<ul>
+		<li><input type="checkbox" id="item4"> <label for="item4">Item 1</label></li>
+		<li><input type="checkbox" id="item5"> <label for="item5">Item 2</label></li>
+		<li><input type="checkbox" id="item6"> <label for="item6">Item 3</label></li>
+	</ul>
+
+	<h2>Inventário</h2>
+	<textarea rows="10" cols="50"></textarea>
+
+	<h2>Rolagem de dados</h2>
+	<p>Resultado 1: <span id="resultado1"></span></p>
+	<p>Resultado 2: <span id="resultado2"></span></p>
+	<button onclick="rolar()">Rolagem de dados</button>
+
+	<script>
+		function aumentar(element) {
+			var input = element.parentNode.querySelector('input');
+			if (input.value < 99) {
+				input.value++;
+			}
+		}
+
+		function diminuir(element) {
+			var input = element.parentNode.querySelector('input');
+			if (input.value > 0) {
+				input.value--;
+			}
+		}
+
+		function rolar() {
+			var resultado1 = Math.floor(Math.random() * 6) + 1;
+			var resultado2 = Math.floor(Math.random() * 6) + 1;
+			document.getElementById('resultado1').textContent = resultado1;
+			document.getElementById('resultado2').textContent = resultado2;
+		}
+	</script>
+</body>
+</html>
